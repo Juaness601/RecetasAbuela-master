@@ -1,0 +1,253 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #d1c4e9;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    background-color: #fff;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    min-height: 400px; /* Ajusta según necesidad */
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+.nav-button {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.nav-button:hover {
+    background-color: #8e24aa;
+}
+
+.left-button {
+    margin-right: 10px;
+}
+
+.right-button {
+    margin-left: 10px;
+}
+
+.section {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 280px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .nav-button {
+        position: static;
+        margin: 15px 0;
+        border-radius: 5px;
+        width: auto;
+    }
+    
+    .left-button, .right-button {
+        order: 2; /* Coloca los botones debajo del contenido en móviles */
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 20px;
+        padding: 15px;
+    }
+    
+    .section-title {
+        font-size: 18px;
+    }
+    
+    .gallery img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 20px;
+        padding: 15px;
+    }
+    
+    .section-title {
+        font-size: 18px;
+    }
+    
+    .gallery img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
+    
+    .nav-buttons {
+        margin: 15px auto;
+    }
+    
+    .nav-buttons button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+/* Estilos existentes... */
+
+/* Nuevos estilos para el botón de regreso */
+.back-button-container {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.back-button {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.back-button:hover {
+    background-color: #8e24aa;
+}
+
+/* Ajuste para el título principal */
+.title {
+    margin-top: 0; /* Elimina el margen superior para acercar al botón */
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .back-button-container {
+        padding: 10px 15px;
+    }
+    
+    .back-button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+/* Estilos para el botón de regreso con icono */
+.back-button-container {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.back-button {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-button:hover {
+    background-color: #8e24aa;
+}
+
+.back-arrow {
+    font-size: 18px;
+}
+
+.abuela-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.back-text {
+    margin-left: 2px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .back-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    .abuela-icon {
+        width: 18px;
+        height: 18px;
+    }
+}

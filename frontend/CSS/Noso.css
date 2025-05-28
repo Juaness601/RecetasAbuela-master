@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d1c4e9;
+    color: #4a4a4a;
+    text-align: justify;
+    padding: 100px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 46px;
+    margin-bottom: 20px;
+    grid-column: 1 / -1; /* El h1 ocupa toda la fila */
+    text-align: center;
+}
+
+.image-placeholder {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    background-color: transparent;
+    justify-self: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+p {
+    font-size: 21px;
+    line-height: 1.6;
+}
+
+/* Media Queries para hacer responsivo */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 992px) {
+    body {
+        grid-template-columns: 1fr;
+        padding: 50px;
+    }
+    .image-placeholder {
+        margin: 20px auto;
+        float: none;
+    }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 576px) {
+    h1 {
+        font-size: 32px;
+    }
+    p {
+        font-size: 18px;
+    }
+    body {
+        padding: 30px;
+    }
+}

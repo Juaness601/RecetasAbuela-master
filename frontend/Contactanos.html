@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacta a la Abuela</title>
+    <link rel="stylesheet" href="CSS/Contac.css">
+</head>
+<body>
+
+    <!-- Encabezado y Navegación (se mantiene igual) -->
+    <header class="header-container">
+        <div class="header-content">
+            <h1 class="header-title">RECETAS DE LA ABUELA</h1>
+            <img class="header-logo" src="Imagenes/abuela.png" alt="Logo de la abuela">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="PaginaInicio.html">Inicio</a></li>
+                <li><a href="Nosotros.html">Nosotros</a></li>
+                <li><a href="TendenciasDeLaAbuela.html">Tendencias</a></li>
+                <li><a href="PaginaPasos.html">Pasos</a></li>
+                <li><a href="Losmejoresnietos.html">Mejores Nietos</a></li>
+                <li><a href="Contactanos.html">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal - Formulario modificado -->
+    <div class="container">
+        <div class="formulario">
+            <h1>CONTACTA A <br> LA ABUELA</h1>
+            <form id="formulario-contacto">  <!-- ID añadido para JS -->
+                <label for="nombre">Nombre</label>  <!-- Cambiado de 'nombres' -->
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellidos">Apellidos</label>  <!-- Campo opcional -->
+                <input type="text" id="apellidos" name="apellidos">
+
+                <label for="email">Correo</label>  <!-- Cambiado de 'correo' -->
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+                <button type="submit">ENVIAR</button>
+            </form>
+
+            <!-- Validación CSS (se mantiene) -->
+            <p>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px"
+                         src="https://jigsaw.w3.org/css-validator/images/vcss"
+                         alt="¡CSS Válido!" />
+                </a>
+            </p>
+        </div>
+
+        <!-- Imagen y redes sociales (se mantiene igual) -->
+        <div class="imagen">
+            <img src="Imagenes/ABUELA_CONTACTANOS.png" alt="Abuela">
+            <div class="social-icons">
+                <img src="Imagenes/facebook_ICON.png" alt="Facebook">
+                <img src="Imagenes/instagram_ICON.png" alt="Instagram">
+                <img src="Imagenes/tik-tok_ICON.png" alt="TikTok">
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para conectar con el backend -->
+    <script>
+        document.getElementById('formulario-contacto').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/contacto', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        nombre: document.getElementById('nombre').value,
+                        apellidos: document.getElementById('apellidos').value,
+                        email: document.getElementById('email').value,
+                        mensaje: document.getElementById('mensaje').value
+                    }),
+                });
+                const data = await response.json();
+                alert(data.success || 'Mensaje enviado con éxito');
+                document.getElementById('formulario-contacto').reset();
+            } catch (error) {
+                alert('Error al enviar el mensaje');
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
